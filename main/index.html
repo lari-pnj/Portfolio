@@ -11,18 +11,19 @@
   <style>
     :root {
       /* PALETA: Preto, Branco e Creme */
-      --bg-gradient-start: #000000;
-      --bg-gradient-end: #1a1a1a;
+      --bg-gradient-start: #0a0a0c;
+      --bg-gradient-end: #121218;
       
-      --main-text: #ffffff;
-      --secondary-text: #d4d4d4;
+      --main-text: #f8f9fa;
+      --secondary-text: #b0b0bc;;
       
       /* TOM CREME/BEGE */
-      --accent-color: #f0e6d2; 
+      --accent-color: #9d4edd; 
+      --accent-hover: #c77dff;
       
-      --card-bg: rgba(20, 20, 20, 0.6);
-      --border-color: rgba(240, 230, 210, 0.15);
-      --hover-glow: rgba(240, 230, 210, 0.25);
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --border-color: rgba(157, 78, 221, 0.2);
+      --hover-glow: rgba(157, 78, 221, 0.15);
     }
 
     * {
@@ -38,7 +39,7 @@
       min-height: 100vh;
       color: var(--main-text);
       /* GRADIENTE PRETO/CINZA NO BACKGROUND */
-      background: linear-gradient(145deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      background: radial-gradient(circle at top right, #1a1a2e, #0a0a0c);
       position: relative;
       overflow-x: hidden;
       display: flex;
@@ -182,6 +183,53 @@
       color: var(--accent-color);
       transform: translateY(-3px);
     }
+    /* SEÇÃO DE SKILLS */
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .skill-card {
+      width: 80px;
+      height: 80px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--secondary-text);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: help;
+    }
+
+    .skill-card:hover {
+      color: var(--accent-color);
+      border-color: var(--accent-color);
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px var(--hover-glow);
+      background: rgba(157, 78, 221, 0.05);
+    }
+
+    /* Animação de entrada sutil */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .skill-card {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Variar o tempo da animação para não subirem todos juntos */
+    .skill-card:nth-child(odd) { animation-delay: 0.5s; }
+    .skill-card:nth-child(even) { animation-delay: 1s; }
 
     /* HEADERS DAS SEÇÕES */
     .section-header {
@@ -269,11 +317,12 @@
 
     .edu-info .period {
       font-size: 0.85rem;
-      color: #000;
+      color: var(--accent-color);
       font-weight: 600;
-      background: var(--accent-color);
+      background: rgba(157, 78, 221, 0.1);
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
+      border: 1px solid var(--accent-color);
       align-self: flex-start;
       margin-top: 0.5rem;
     }
@@ -379,8 +428,9 @@
     .contact-btn {
       display: inline-block;
       padding: 0.8rem 2rem;
-      border: 1px solid var(--accent-color);
-      color: var(--accent-color);
+      border: none;
+      background: var(--accent-color);
+      color: #fff;
       border-radius: 50px;
       transition: 0.3s;
       margin: 0 0.5rem;
@@ -388,9 +438,10 @@
     }
 
     .contact-btn:hover {
-      background: var(--accent-color);
-      color: #000;
+      background: var(--accent-hover);
+      color: #fff;
       box-shadow: 0 0 15px rgba(240, 230, 210, 0.3);
+      transform: scale(1.05);
     }
 
     /* RODAPÉ */
@@ -559,7 +610,7 @@
     
     <section class="profile-section" id="sobre">
       <div class="profile-img-container">
-        <img src="WhatsApp Image 2025-12-01 at 08.10.01.jpeg" alt="Retrato da Larissa" />
+        <img src="assents/img.jpeg" alt="Retrato da Larissa" />
       </div>
       <h1>Olá, eu sou a Larissa</h1>
       <p>
@@ -572,6 +623,20 @@
         <a href="https://www.tiktok.com/@lareaoxy" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
         
         <a href="https://www.youtube.com/@larie2222" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </section>
+
+    <section id="skills" style="width: 100%;">
+      <div class="section-header">
+        <div class="section-title">Tecnologias & Ferramentas</div>
+      </div>
+      <div class="skills-container">
+        <div class="skill-card" title="HTML5"><i class="fab fa-html5"></i></div>
+        <div class="skill-card" title="CSS3"><i class="fab fa-css3-alt"></i></div>
+        <div class="skill-card" title="JavaScript"><i class="fab fa-js"></i></div>
+        <div class="skill-card" title="Python"><i class="fab fa-python"></i></div>
+        <div class="skill-card" title="Figma"><i class="fab fa-figma"></i></div>
+        <div class="skill-card" title="GitHub"><i class="fab fa-github"></i></div>
       </div>
     </section>
 
@@ -602,7 +667,7 @@
       <div class="projects-grid">
         
         <div class="project-card">
-          <img src="fundo1.png" alt="Otimizador-Aoxy"/>
+          <img src="assents/fundo1.png" alt="Otimizador-Aoxy"/>
           <h3>Otimizador-Aoxy</h3>
           <p>Aplicação desktop intuitiva desenvolvida para otimização prática do computador. Interface amigável que permite aos usuários melhorar o desempenho do sistema com poucos cliques.</p>
           
@@ -617,7 +682,7 @@
         </div>
 
         <div class="project-card">
-          <img src="menu atual.png" alt="7 Noites na Taberna"/>
+          <img src="assents/menu atual.png" alt="7 Noites na Taberna"/>
           <h3>7 Noites na Taberna</h3>
           <p>Um jogo de RPG baseado em texto para terminal. Apresenta uma narrativa original e interativa, servindo como um excelente projeto para demonstrar lógica de programação avançada em Python.</p>
           
@@ -627,6 +692,66 @@
             </a>
           </div>
         </div>
+
+        <div class="project-card">
+          <img src="assents/page-aoxy.png" alt="Landing-page-otimizadorAoxy"/>
+          <h3>Otimizador Aoxy (Landing Page)</h3>
+          <p>Landing Page desenvolvida para o download do software Otimizador-Aoxy. 
+           Neste projeto, apliquei a biblioteca <strong>AOS (Animate On Scroll)</strong> para criar uma navegação fluida e moderna, além de focar em design responsivo.</p>
+          
+          <div class="project-actions">
+            <a href="https://github.com/lari-pnj/Pagina-Otimizador-Aoxy" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://lari-pnj.github.io/Pagina-Otimizador-Aoxy/" class="project-link" target="_blank">
+              <i class="https://lari-pnj.github.io/Pagina-Otimizador-Aoxy/"></i> Acessar
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="assents/link-in-bio.png" alt="7 Noites na Taberna"/>
+          <h3>Link-in-Bio</h3>
+          <p>Página de links personalizada inspirada no Linktree, desenvolvida com HTML e CSS para centralizar minhas redes sociais em um único lugar. Foco total em design responsivo e acessibilidade mobile."</p>
+          
+          <div class="project-actions">
+            <a href="https://github.com/lari-pnj/Link-in-bio?tab=readme-ov-file" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://lari-pnj.github.io/Link-in-bio/" class="project-link" target="_blank">
+              <i class="link-in-bio"></i> Acessar
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="assents/pagerobo.png" alt="7 Noites na Taberna"/>
+          <h3>AOXYCode - Landing Page com Robô 3D Interativo</h3>
+          <p>Uma Landing Page moderna e imersiva desenvolvida para apresentar uma solução tecnológica de otimização de e-mails e combate ao spam. O grande diferencial é a interface interativa com um robô 3D que acompanha o movimento do cursor do usuário.</p>
+          
+          <div class="project-actions">
+            <a href="https://github.com/lari-pnj/Page-Robo-interativo-ant-spam" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="assents/catalogo.png" alt="7 Noites na Taberna"/>
+          <h3>Catalogo-De-Jogos</h3>
+          <p>Este projeto é um catálogo de jogos desenvolvido durante a Imersão da Alura, utilizando HTML, CSS e JavaScript.</p>
+          
+          <div class="project-actions">
+            <a href="https://github.com/lari-pnj/Catalogo-De-Jogos?tab=readme-ov-file" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+             <a href="https://lari-pnj.github.io/Catalogo-De-Jogos/" class="project-link" target="_blank">
+              <i class="catalogo"></i> Acessar
+            </a>
+          </div>
+        </div>
+
+
 
       </div>
     </section>

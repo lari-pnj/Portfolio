@@ -26,7 +26,6 @@
     }
 
     body {
-        min-height: 100vh;
         color: var(--main-text);
         /* GRADIENTE PRETO/CINZA NO BACKGROUND */
         background: radial-gradient(circle at top right, #1a1a2e, #0a0a0c);
@@ -368,11 +367,6 @@
         margin-bottom: 1.2rem;
         opacity: 0.9;
         transition: opacity 0.3s;
-    }
-
-    .img-cripto {
-        width: auto;
-
     }
 
     .project-card:hover img {
